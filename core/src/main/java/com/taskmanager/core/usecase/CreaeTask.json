@@ -1,0 +1,19 @@
+package com.taskmanager.com.usecase;
+
+import com.taskmanager.core.domain.Task;
+import com.taskmanager.core.repository.TaskRepository;
+
+public class CreateTask {
+
+    private final TaskRepository repo;
+
+    public CreateTask(TaskRepository repo) {
+        this.repo = repo;
+    }
+
+    public Task execute(String title) {
+        Task task = Task.create(title);
+        repo.save(task);
+        return task;
+    }
+}
