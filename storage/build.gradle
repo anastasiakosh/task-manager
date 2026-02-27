@@ -1,0 +1,10 @@
+plugins {
+    id 'buildlogic.java-library-conventions'
+}
+
+dependencies {
+    implementation project(':core')
+
+    implementation 'org.xerial:sqlite-jdbc:3.45.1.0'
+}
+
