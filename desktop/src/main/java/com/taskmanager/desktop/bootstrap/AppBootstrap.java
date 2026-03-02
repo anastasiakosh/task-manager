@@ -3,15 +3,21 @@ package com.taskmanager.desktop.bootstrap;
 import com.taskmanager.core.domain.Task;
 import com.taskmanager.storage.sqlite.SqliteTaskRepository;
 
+import java.util.List;
+
 public class AppBootstrap {
+
     public static void main(String[] args) {
+
         var repo = new SqliteTaskRepository();
 
-        var task = Task.create("First persisted task");
-        repo.save(task);
+        // save one task
+        repo.save(Task.create("First persisted task"));
 
-        var tasks = repo.findAll();
+        // fetch all tasks
+        List<Task> tasks = repo.findAll();
 
-        task.forEach(t -> System.out.println(t.getTitle()));
+        // print them
+        tasks.forEach(t -> System.out.println(t.getTitle()));
     }
 }
